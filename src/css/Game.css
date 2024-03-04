@@ -114,3 +114,8 @@ img {
     border-radius: 50%;
     background-color: white;
 }
+
+.selected {
+    background-color: #CCCCCC;
+    color: #000000;
+}
