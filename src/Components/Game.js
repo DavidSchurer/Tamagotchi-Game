@@ -162,7 +162,7 @@ export const Game = () => {
     const minutes = Math.floor(elapsedTime / 60);
     const seconds = elapsedTime % 60;
     // Add a 0 to the left if the number is less than 10
-    const elapsedTimeFormatted = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const elapsedTimeFormatted = `${minutes} Minutes ${seconds.toString().padStart(2, '0')} Seconds`;
     // Update the age record when the age changes
     useEffect(updateRecord, [age, record]);
     // Load the age record from localStorage
@@ -213,7 +213,7 @@ export const Game = () => {
             </div>
 
 
-            <h1 className="character-name">Game Time: {elapsedTimeFormatted} Sec.</h1>
+            <h1 className="character-name">Game Time: {elapsedTimeFormatted}</h1>
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Kirby's Status</Modal.Title>
