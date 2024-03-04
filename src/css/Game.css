@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Kirby Classic';
-    src: url('../fonts/kirby-classic.ttf') format('truetype');
+    font-family: 'Tamagotchi';
+    src: url('../fonts/tamagotchi.ttf') format('truetype');
 }
 
 /*Figura de huevo para colocar el personje*/
@@ -8,10 +8,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 590px;
-    max-width: 475px;
+    height: 539px;
+    max-width: 400px;
     border-radius: 50%;
-    background-color: lightblue;
+    background-color: #f9f882;
     /*Añadir despues un diseño de extrellas*/
     margin: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
@@ -20,7 +20,7 @@
 
 /*Texto nombre personaje*/
 .character-name {
-    font-family: 'Kirby Classic';
+    font-family: 'Tamagotchi';
     font-size: 20px;
     font-weight: bold;
     color: #f37c90;
@@ -87,7 +87,7 @@ img {
 }
 
 #gameTime {
-    font-family: 'Kirby Classic';
+    font-family: 'Tamagotchi';
     font-size: 20px;
     font-weight: bold;
     color: #f37c90;
@@ -95,17 +95,4 @@ img {
     position: absolute;
     top: 10px;
     left: 10px;
-}
-
-.circularButtons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.circularButton {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: white;
 }
