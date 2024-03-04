@@ -50,6 +50,7 @@ export const Game = () => {
     // Adds the variable showGif and sets its initial value to false
     const [showGif, setShowGif] = useState(false);
     const [gif, setGif] = useState(null);
+    const [selectedAction, setSelectedAction] = useState('play');
 
     // Modifies the showGif function to change the value of showGif to true
     // and set a timer to change the value of showGif back to false
@@ -174,6 +175,62 @@ export const Game = () => {
         }
     }, []);
 
+    const handleCircularButtonAction = (action) => {
+        switch(action) {
+            case 'A':
+                switch (selectedAction) {
+                    case 'eat':
+                        setSelectedAction('heal');
+                        break;
+                    case 'play':
+                        setSelectedAction('eat');
+                        break;
+                    case 'heal':
+                        setSelectedAction('play');
+                        break;
+                }
+                break;
+            case 'B':
+                switch (selectedAction) {
+                    case 'eat':
+                        setHunger(Math.min(hunger + 10, 100));
+                        setGif('https://i.giphy.com/media/R6oW8JAJxqRxe/giphy.webp');
+                        displayGif();
+                        break;
+                    case 'play':
+                        setHappiness(Math.min(happiness + 10, 100));
+                        setGif('https://i.giphy.com/media/uQkKavfX6TER2/giphy.webp');
+                        displayGif();
+                        break;
+                    case 'heal':
+                        setHealth(Math.min(health + 10, 100));
+                        setGif('https://64.media.tumblr.com/62a6ea40278de0931ad16726b7017e01/tumblr_n0w505oIli1ru09vqo1_500.gifv');
+                        displayGif();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 'C':
+                switch (selectedAction) {
+                    case 'eat':
+                        setSelectedAction('play');
+                        break;
+                    case 'play':
+                        setSelectedAction('heal');
+                        break;
+                    case 'heal':
+                        setSelectedAction('eat');
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+    };
+
     return (
         <div className="egg">
             <h1 className="character-name">Kirby</h1>
@@ -189,40 +246,28 @@ export const Game = () => {
 
             <div>
                 <div className="buttons">
-                    <button onClick={() => {
-                        setHunger(Math.min(hunger + 10, 100));
-                        setGif('https://i.giphy.com/media/R6oW8JAJxqRxe/giphy.webp');
-                        displayGif();
-                    }}>
+                    <button className={selectedAction === 'eat' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
                         <IoFastFoodOutline/> Eat
                     </button>
-                    <button onClick={() => {
-                        setHappiness(Math.min(happiness + 10, 100));
-                        setGif('https://i.giphy.com/media/uQkKavfX6TER2/giphy.webp');
-                        displayGif();
-                    }}>
+                    <button className={selectedAction === 'play' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
                         <GrGamepad/> Play
                     </button>
-                    <button onClick={() => {
-                        setHealth(Math.min(health + 10, 100));
-                        setGif('https://64.media.tumblr.com/62a6ea40278de0931ad16726b7017e01/tumblr_n0w505oIli1ru09vqo1_500.gifv');
-                        displayGif();
-                    }}>
+                    <button className={selectedAction === 'heal' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
                         <MdOutlineHealthAndSafety/> Heal
                     </button>
                 </div>
                 <div className = "circularButtons">
-                    <button className="circularButton" onClick={() => {
-                        // Implement logic for go back (A) 
-                    }}>A</button>
+                    <button className="circularButton" onClick={() => handleCircularButtonAction('A')}>
+                        A
+                    </button>
 
-                    <button className="circularButton" onClick={() => {
-                        // Implement logic for select (B)
-                    }}>B</button>
+                    <button className="circularButton" onClick={() => handleCircularButtonAction('B')}>
+                        B
+                    </button>
 
-                    <button className="circularButton" onClick={() => {
-                        // Implement logic for go forward (C)
-                    }}>C</button>
+                    <button className="circularButton" onClick={() => handleCircularButtonAction('C')}>
+                        C
+                    </button>
                 </div>
             </div>
 
