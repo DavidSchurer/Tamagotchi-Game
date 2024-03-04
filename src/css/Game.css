@@ -8,10 +8,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 539px;
-    max-width: 400px;
+    height: 590px;
+    max-width: 475px;
     border-radius: 50%;
-    background-color: #f9f882;
+    background-color: lightblue;
     /*Añadir despues un diseño de extrellas*/
     margin: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
@@ -95,4 +95,17 @@ img {
     position: absolute;
     top: 10px;
     left: 10px;
+}
+
+.circularButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.circularButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
 }
