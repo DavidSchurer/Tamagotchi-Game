@@ -211,6 +211,19 @@ export const Game = () => {
                         <MdOutlineHealthAndSafety/> Heal
                     </button>
                 </div>
+                <div className = "circularButtons">
+                    <button className="circularButton" onClick={() => {
+                        // Implement logic for go back (A) 
+                    }}>A</button>
+
+                    <button className="circularButton" onClick={() => {
+                        // Implement logic for select (B)
+                    }}>B</button>
+
+                    <button className="circularButton" onClick={() => {
+                        // Implement logic for go forward (C)
+                    }}>C</button>
+                </div>
             </div>
 
 
