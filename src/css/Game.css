@@ -8,22 +8,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 539px;
-    max-width: 400px;
-    border-radius: 50%;
+    height: 500px;
+    max-width: calc(500px * 0.8);
+    border-radius: 60% / 70% 70% 50% 50%; /* Adjusted border-radius */
     background-color: lightblue;
     /*Añadir despues un diseño de extrellas*/
     margin: auto;
+    margin-top: 45px; /* Adjusted margin-top */
+    margin-bottom: 50px; /* Adjusted margin-bottom */
     box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
     /*box-shadow: h-offset v-offset blur spread color;*/
 }
+
+
+
 
 /*Texto nombre personaje*/
 .character-name {
     font-family: 'Tamagotchi';
     font-size: 20px;
     font-weight: bold;
-    color: #f37c90;
+    color: #f4f5b2;
     text-shadow: 0 0 10px #ffffff;
     text-align: center;
     margin-top: 10%;
@@ -33,7 +38,7 @@
 .character-age {
     font-size: 100%;
     font-weight: bold;
-    color: blue;
+    color: rgb(146, 146, 193);
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
@@ -45,7 +50,7 @@
     background-color: #ccc;
     border-radius: 2%;
     margin-top: 2%;
-    border: 5px solid #ff0066;
+    border: 5px solid #e9e344;
     /*border: width style color;*/
     border-radius: 10%;
     box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
@@ -87,7 +92,7 @@ img {
 }
 
 #gameTime {
-    font-family: 'Tamagotchi';
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: #f37c90;
