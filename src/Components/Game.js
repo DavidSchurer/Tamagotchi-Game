@@ -50,7 +50,7 @@ export const Game = () => {
     // Adds the variable showGif and sets its initial value to false
     const [showGif, setShowGif] = useState(false);
     const [gif, setGif] = useState(null);
-    const [selectedAction, setSelectedAction] = useState('play');
+    const [selectedAction, setSelectedAction] = useState('eat'); // changed default selectedAction from 'play' to 'eat'
 
     // Modifies the showGif function to change the value of showGif to true
     // and set a timer to change the value of showGif back to false
@@ -180,13 +180,22 @@ export const Game = () => {
             case 'A':
                 switch (selectedAction) {
                     case 'eat':
-                        setSelectedAction('heal');
+                        setSelectedAction('play');
                         break;
                     case 'play':
-                        setSelectedAction('eat');
+                        setSelectedAction('heal');
                         break;
                     case 'heal':
-                        setSelectedAction('play');
+                        setSelectedAction('duck');
+                        break;
+                    case 'duck':
+                        setSelectedAction('status')
+                        break;
+                    case 'status':
+                        setSelectedAction('attention');
+                        break;
+                    case 'attention':
+                        setSelectedAction('eat');
                         break;
                 }
                 break;
@@ -207,10 +216,20 @@ export const Game = () => {
                         setGif('https://64.media.tumblr.com/62a6ea40278de0931ad16726b7017e01/tumblr_n0w505oIli1ru09vqo1_500.gifv');
                         displayGif();
                         break;
+                    case 'duck':
+                        setGif('')
+                        displayGif('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExank1bTlpY2Ewb2MwdTJ4dzRlZm5oc29kenhpMWpyZnRudGRpZzdxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkxfezUB7Rj4k/giphy.gif');
+                        break;                        
+                    case 'status':
+                        setShowModal(true);
+                        break;
+                    case 'attention':
+                        displayGif('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExank1bTlpY2Ewb2MwdTJ4dzRlZm5oc29kenhpMWpyZnRudGRpZzdxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkxfezUB7Rj4k/giphy.gif');
                     default:
                         break;
                 }
                 break;
+            // Change functionality to 'back' button, will not traverse buttons in anyway
             case 'C':
                 switch (selectedAction) {
                     case 'eat':
@@ -255,8 +274,16 @@ export const Game = () => {
                     {showGif ? <img className='gif' src={gif} alt="Gif" /> : <TamagoshiImage hunger={hunger} happiness={happiness} health={health} />}
                 </div>
             </div>
-            <div>
-                <button className='footerButtons' onClick={() => setShowModal(true)}><MdOutlineAdsClick /> Status</button>
+            <div className="footerButtons">
+                <button className={selectedAction === 'duck' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
+                        <MdOutlineAdsClick/> Duck
+                </button>
+                <button className={selectedAction === 'status' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
+                        <MdOutlineAdsClick/> Status
+                </button>
+                <button className={selectedAction === 'attention' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
+                        <MdOutlineAdsClick/> Attend
+                </button>
             </div>
 
             <div>
