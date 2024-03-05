@@ -13,33 +13,33 @@ import { GiLaurelsTrophy } from 'react-icons/gi';
 import { MdOutlineAdsClick } from 'react-icons/md';
 
 // Components
-const TamagoshiImage = ({ hunger, happiness, health }) => {
-    let tamagoshiImage;
+const TamagotchiImage = ({ hunger, happiness, health }) => {
+    let TamagotchiImage;
     // if hunger is less than or equal to 30 or happiness is less than or equal to 30 or health is less than or equal to 30
     if (hunger <= 30 || happiness <= 30 || health <= 30) {
-        tamagoshiImage = 'https://i.imgur.com/Okh86g4.png';
+        TamagotchiImage = 'https://i.imgur.com/Okh86g4.png';
     }
     // if hunger is equal to 0 or happiness is equal to 0 or health is equal to 0
     else if (hunger === 0 || happiness === 0 || health === 0) {
-        tamagoshiImage = 'https://i.imgur.com/29jrgnP.png';
+        TamagotchiImage = 'https://i.imgur.com/29jrgnP.png';
     }
     // if hunger is greater than 90 or happiness is greater than 90 or health is greater than 90
     else if (happiness > 90 && hunger > 95 && health > 90) {
-        tamagoshiImage = 'https://i.imgur.com/kQooJxm.png';
+        TamagotchiImage = 'https://i.imgur.com/kQooJxm.png';
     }
     // if hunger is greater than 80 and happiness is greater than 80 and health is greater than 80
     else if (hunger > 80 && happiness > 80 && health > 80) {
-        tamagoshiImage = 'https://i.imgur.com/wWoMWxA.png';
+        TamagotchiImage = 'https://i.imgur.com/wWoMWxA.png';
     }
     // if hunger is greater than 30 and happiness is greater than 30 and health is greater than 30
     else if (hunger > 30 && happiness > 30 && health > 30) {
-        tamagoshiImage = 'https://i.imgur.com/EHOnPps.png';
+        TamagotchiImage = 'https://i.imgur.com/EHOnPps.png';
     }
-    return <img src={tamagoshiImage} alt="Tamagoshi" />;
+    return <img src={TamagotchiImage} alt="Tamagotchi" />;
 }
 
 export const Game = () => {
-    // States for Tamagoshi parameters
+    // States for Tamagotchi Parameters
     const [hunger, setHunger] = useState(50);
     const [happiness, setHappiness] = useState(50);
     const [age, setAge] = useState(0);
@@ -63,7 +63,7 @@ export const Game = () => {
         );
     };
 
-    // Function to update Tamagoshi's age
+    // Function to update Tamagotchi's age
     useInterval(() => {
         setAge(age + 1);
         if (age === 99) {
@@ -94,7 +94,7 @@ export const Game = () => {
     useInterval(() => {
         setElapsedTime(elapsedTime + 1);
     }, 1000); // Update every second
-    // Function to update Tamagoshi's hunger state
+    // Function to update Tamagotchi's hunger state
     useInterval(() => {
         setHunger(hunger - 1);
         if (hunger === 0) {
@@ -121,11 +121,11 @@ export const Game = () => {
             });
         }
     }, 2000);
-    // Function to update Tamagoshi's happiness state
+    // Function to update Tamagotchi's happiness state
     useInterval(() => {
         setHappiness(happiness - 1);
     }, 4000);
-    // Function to update Tamagoshi's health state
+    // Function to update Tamagotchi's health state
     useInterval(() => {
         setHealth(health - 1);
         if (health === 0) {
@@ -271,8 +271,8 @@ export const Game = () => {
 
             <div className="square">
                 <div className="square-content">
-                    {/* Display the GIF if showGif is true and display the Tamagoshi image if showGif is false */}
-                    {showGif ? <img className='gif' src={gif} alt="Gif" /> : <TamagoshiImage hunger={hunger} happiness={happiness} health={health} />}
+                    {/* Display the GIF if showGif is true and display the Tamagotchi image if showGif is false */}
+                    {showGif ? <img className='gif' src={gif} alt="Gif" /> : <TamagotchiImage hunger={hunger} happiness={happiness} health={health} />}
                 </div>
             </div>
             <div className="footerButtons">
