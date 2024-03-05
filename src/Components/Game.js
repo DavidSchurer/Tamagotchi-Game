@@ -188,6 +188,9 @@ export const Game = () => {
                     case 'heal':
                         setSelectedAction('play');
                         break;
+                    case 'status':
+                        setSelectedAction('status');
+                        break;
                 }
                 break;
             case 'B':
@@ -207,10 +210,13 @@ export const Game = () => {
                         setGif('https://64.media.tumblr.com/62a6ea40278de0931ad16726b7017e01/tumblr_n0w505oIli1ru09vqo1_500.gifv');
                         displayGif();
                         break;
+                    case 'status':
+                        setShowModal(true);
+
+                    break;
                     default:
                         break;
                 }
-                break;
             case 'C':
                 switch (selectedAction) {
                     case 'eat':
@@ -222,6 +228,8 @@ export const Game = () => {
                     case 'heal':
                         setSelectedAction('eat');
                         break;
+                    case 'status':
+                        setSelectedAction('status');
                     default:
                         break;
                 }
@@ -236,16 +244,8 @@ export const Game = () => {
             <h1 className="character-name">Kirby</h1>
             <h2 className="character-age"> <BiTime /> Age: {age} Years</h2>
             <h2 className="character-age"> <GiLaurelsTrophy /> Record: {record} Years</h2>
-            <button className='buttonsUp' onClick={() => setShowModal(true)}><MdOutlineAdsClick /> Status</button>
-            <div className="square">
-                <div className="square-content">
-                    {/* Display the GIF if showGif is true and display the Tamagoshi image if showGif is false */}
-                    {showGif ? <img className='gif' src={gif} alt="Gif" /> : <TamagoshiImage hunger={hunger} happiness={happiness} health={health} />}
-                </div>
-            </div>
-
-            <div>
-                <div className="buttons">
+            
+            <div className="headerButtons">
                     <button className={selectedAction === 'eat' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
                         <IoFastFoodOutline/> Eat
                     </button>
@@ -255,7 +255,28 @@ export const Game = () => {
                     <button className={selectedAction === 'heal' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
                         <MdOutlineHealthAndSafety/> Heal
                     </button>
+            </div>
+
+            <div className="square">
+                <div className="square-content">
+                    {/* Display the GIF if showGif is true and display the Tamagoshi image if showGif is false */}
+                    {showGif ? <img className='gif' src={gif} alt="Gif" /> : <TamagoshiImage hunger={hunger} happiness={happiness} health={health} />}
                 </div>
+            </div>
+            
+            <div className="footerButtons">
+            <button className={selectedAction === 'status' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
+                        <MdOutlineAdsClick/> shit
+                </button>
+                <button className={selectedAction === 'status' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
+                        <MdOutlineAdsClick/> Status
+                </button>
+                <button className={selectedAction === 'status' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
+                        <MdOutlineAdsClick/> attend
+                </button>
+            </div>
+
+            <div>
                 <div className = "circularButtons">
                     <button className="circularButton" onClick={() => handleCircularButtonAction('A')}>
                         A
