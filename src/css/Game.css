@@ -45,12 +45,11 @@
 
 /*Cuadrado donde esta el png*/
 .square {
-    height: 200px;
-    width: 200px;
+    height: 240px;
+    width: 240px;
     background-color: #ccc;
     border-radius: 2%;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 6%;
     border: 5px solid #e9e344;
     /*border: width style color;*/
     border-radius: 10%;
@@ -107,14 +106,15 @@ img {
 .circularButtons {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .circularButton {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: white;
+    margin: 0 7px;
 }
 
 .selected {
