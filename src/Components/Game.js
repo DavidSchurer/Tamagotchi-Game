@@ -253,8 +253,8 @@ export const Game = () => {
     return (
         <div className="egg">
             <h1 className="character-name">Kirby</h1>
-            <h2 className="character-age"> <BiTime /> Age: {age} Years</h2>
-            <h2 className="character-age"> <GiLaurelsTrophy /> Record: {record} Years</h2>
+            <h2 className="character-age" style={{ position: 'fixed', top: '50px', left: '10px' }}> <BiTime /> Age: {age} Years</h2>
+            <h2 className="character-age"style={{ position: 'fixed', top: '80px', left: '10px' }}> <GiLaurelsTrophy /> Record: {record} Years</h2>
             
             <div className="headerButtons">
                     <button className={selectedAction === 'eat' ? 'selected' : ''} onClick={() => handleCircularButtonAction('B')}>
