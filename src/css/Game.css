@@ -3,27 +3,22 @@
     src: url('../fonts/tamagotchi.ttf') format('truetype');
 }
 
-/*Figura de huevo para colocar el personje*/
+/*Egg-shaped figure to place the character*/
 .egg {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 500px;
     max-width: calc(500px * 0.8);
-    border-radius: 60% / 70% 70% 50% 50%; /* Adjusted border-radius */
+    border-radius: 60% / 70% 70% 50% 50%; 
     background-color: lightblue;
-    /*Añadir despues un diseño de extrellas*/
     margin: auto;
-    margin-top: 45px; /* Adjusted margin-top */
-    margin-bottom: 50px; /* Adjusted margin-bottom */
+    margin-top: 45px; 
+    margin-bottom: 50px; 
     box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
-    /*box-shadow: h-offset v-offset blur spread color;*/
 }
 
-
-
-
-/*Texto nombre personaje*/
+/*Text for character's name*/
 .character-name {
     font-family: 'Tamagotchi';
     font-size: 20px;
@@ -34,7 +29,7 @@
     margin-top: 10%;
 }
 
-/*Texto de la edad*/
+/*Text for character's age*/
 .character-age {
     font-size: 100%;
     font-weight: bold;
@@ -43,7 +38,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/*Cuadrado donde esta el png*/
+/*Square where the PNG is located*/
 .square {
     height: 240px;
     width: 240px;
@@ -51,20 +46,15 @@
     border-radius: 2%;
     margin-top: 6%;
     border: 5px solid #e9e344;
-    /*border: width style color;*/
     border-radius: 10%;
     box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
 }
 
-
 .gif {
     background: 50% 50% no-repeat;
-    /* 50% 50% centers image in div */
     width: 191px;
     height: 191px;
     border-radius: 7%;
-
-
 }
 
 img {
