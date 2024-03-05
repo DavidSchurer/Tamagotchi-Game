@@ -50,6 +50,7 @@
     background-color: #ccc;
     border-radius: 2%;
     margin-top: 2%;
+    margin-bottom: 2%;
     border: 5px solid #e9e344;
     /*border: width style color;*/
     border-radius: 10%;
@@ -72,8 +73,7 @@ img {
     height: 100%;
 }
 
-/*Botones inferiores*/
-.buttons {
+.headerButtons {
     display: flex;
     width: 100%;
     margin-top: 1%;
@@ -86,8 +86,10 @@ img {
     cursor: pointer;
 }
 
-.buttonsUp {
+.footerButtons {
     display: flex;
+    width: 100%;
+    margin-bottom: 1%;
     justify-content: center;
 }
 
