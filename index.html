@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, JavaScript, CSS481, Tamagotchi">
+    <title>Tamagotchi Game</title>
+    <link rel="icon" href="tamagotchiLightBlueIcon.png">
+    <link rel="stylesheet" href="tamagotchi.css">
+  </head>
+  <body>
+    <div class="egg">
+      <h1 class="tamagotchi-name">Mimitchi</h1>
+      <h2 class="tamagotchi-age" style="position: fixed; top: 50px; left: 10px;">
+        Age: <p id="age"> years</p>
+        other time metric stuff: <p id="timer">give it 5s</p>
+      </h2> 
+
+      <div class="screen">
+        <div class="headerBtns"> 
+          <button id="eat" class="btnIcon"><img src="./icons/eat-icon.png" alt="Eat"></button> <!--Eat-->
+          <button id="play" class="btnIcon"><img src="./icons/play-icon.png" alt="Play"></button> <!--Play-->
+          <button id="heal" class="btnIcon"><img src="./icons/heal-icon.png" alt="Heal"></button> <!--Heal-->
+        </div>
+
+        <div class="screen-content">
+          <img id="tamagotchi-character" class="action" src="mimitchi-bing-chilling.png" alt="action error nooo">
+        </div>
+
+        <div class="footerBtns">
+          <button id="duck" class="btnIcon"><img src="./icons/duck-icon.png" alt="Duck"></button> <!--Duck-->
+          <button id="health" class="btnIcon"><img src="./icons/health-icon.png" alt="Health status"></button> <!--Health meter-->
+          <button id="attend" class="btnIcon"><img src="./icons/attend-icon.png" alt="Attend"></button> <!--Attend-->
+        </div>
+      </div>
+
+      <div class="circularBtns">
+        <button id="A" class="circularBtn">A</button>
+        <button id="B" class="circularBtn" style="margin-top: 38px">B</button>
+        <button id="C" class="circularBtn">C</button>
+      </div>
+    </div>
+
+    </script>
+
+    <script src="tamagotchi.js"></script>
+    <noscript>enable JavaScript pls</noscript>
+  </body>
+</html>

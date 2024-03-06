@@ -1,0 +1,180 @@
+/* Custom Tamagotchi font */
+@font-face {
+  font-family: 'Tamagotchi';
+  src: url('/tamagotchi.ttf') format('truetype');
+}
+
+/* Egg-shape to resemble Tamagotchi device */
+.egg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 700px;
+  max-width: calc(700px * 0.8);
+  border-radius: 60% / 70% 70% 50% 50%; 
+  background-color: lightblue;
+  margin: auto;
+  margin-top: 45px; 
+  margin-bottom: 50px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
+}
+
+/* Text for Tamagotchi's name */
+.tamagotchi-name {
+  font-family: 'Tamagotchi';
+  font-size: 28px;
+  font-weight: bold;
+  color: #f4f5b2;
+  text-shadow: 0 0 10px #ffffff;
+  text-align: center;
+  margin-top: 10%;
+}
+
+/* Text for Tamagotchi's age */
+.tamagotchi-age {
+  font-size: 100%;
+  font-weight: bold;
+  color: rgb(146, 146, 193);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Tamagotchi device's screen */
+.screen {
+  display: flex;
+  flex-direction: column; /* vertically align children */
+  justify-content: space-between; /* align header and footer buttons to their respective ends */
+  height: 325px;
+  width: 300px;
+  background-color: #cccccc; 
+  border-radius: 10%;
+  margin-top: 13%;
+  margin-bottom: 2%;
+  border: 5px solid #e9e344;
+  box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
+  padding: 10px, 5px; 
+  overflow: hidden; /* prevent child content from overflowing div boundaries */
+}
+
+.screen-content {
+  flex-grow: 1; /* expands div to fill available space */
+  display: flex; /* center inner tamagotchi img */
+  justify-content: center;
+  align-items: center;
+}
+
+.screen-content img {
+  width: 300px;
+  height: 175px;
+}
+
+.action {
+  max-width: 100%; /* tamagotchi img will not overflow into parent container's width */
+  max-height: 100%; /* tamagotchi img will not overflow into parent container's height */
+  border-radius: 7%;
+}
+
+.headerBtns {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* divs take up entire width of their parent */
+  height: 100%; /* divs take up entire height of their parent */
+  padding-top: 10px;
+  padding-bottom: 8px;
+  border-bottom: 5px solid #e9e344;
+}
+
+.footerBtns {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  border-top: 5px solid #e9e344;
+}
+
+.headerBtns button, .footerBtns button {
+  margin: 0 20px; /* spacing between buttons */
+  border: 1px;
+  background: none; /* transparent bg */
+}
+
+.btnIcon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* imgs maintain aspect ratio */
+}
+
+.circularBtns {
+  display: flex;
+  justify-content: center;
+}
+
+.circularBtn {
+  margin: 17px; /* spacing between buttons */
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border-width: 8px;
+  border-color: #e9e344;
+  background-color: white;
+}
+
+.headerBtns button.selected, .footerBtns button.selected {
+  animation: selected 0.72s infinite;
+}
+
+@keyframes selected {
+  0% { background-color: #6b6b6b; }
+  12% { background-color: #737373; }
+  25% { background-color: #808080; }
+  38% { background-color: #919191; }
+  50% { background-color: #adadad; }
+  63% { background-color: #b1b1b1; }
+  75% { background-color: #bfbfbf; }
+  88% { background-color: #cacaca; }
+  100% { background-color: #cccccc; }
+}
+
+.food-menu {
+  width: 300px;
+  height: 175px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.food-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.food-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: -10px;
+}
+
+.food-menu li {
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.food-menu li.selected {
+  background-color: #ccc;
+}
+
+.food-item img {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.food-list {
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
