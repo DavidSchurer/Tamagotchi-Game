@@ -16,10 +16,17 @@ window.onload = function() {
       document.getElementById('age').textContent = age + " years\n"; 
     }
     if (secondsElapsed % 10 == 0) {
-      hunger -= 5;
-      happiness -= 5;
-      health -= 5;
-      nappyPoo -= 5;
+        // Decrease stats by 5 but ensure they don't go below 0
+        hunger = Math.max(0, hunger - 5);
+        happiness = Math.max(0, happiness - 5);
+        health = Math.max(0, health - 5);
+        nappyPoo = Math.max(0, nappyPoo - 5);
+
+        // Cap stats at 100
+        hunger = Math.min(100, hunger);
+        happiness = Math.min(100, happiness);
+        health = Math.min(100, health);
+        nappyPoo = Math.min(100, nappyPoo);
       // ik this looks ugly format wise but is only here temporarily to see if stats r functioning properly
       document.getElementById('timer').textContent = "\nhunger: " + hunger + 
       "\n| happiness: " + happiness + "\n| health: " + health + 
