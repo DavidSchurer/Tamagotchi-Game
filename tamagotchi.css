@@ -46,7 +46,7 @@
   justify-content: space-between; /* align header and footer buttons to their respective ends */
   height: 325px;
   width: 300px;
-  background-color: pink;
+  background-color: #cccccc; 
   border-radius: 10%;
   margin-top: 13%;
   margin-bottom: 2%;
@@ -66,6 +66,7 @@
 .screen-content img {
   width: 300px;
   height: 175px;
+  overflow: hidden;
 }
 
 .action {
@@ -175,6 +176,4 @@
 
 .food-list {
   overflow-y: auto;
-  padding: 0;
-  margin: 0;
 }
