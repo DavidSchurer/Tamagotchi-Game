@@ -1,42 +1,88 @@
 let startTime;
-let hunger = 100; // me hungee
-let happiness = 100; // im so sad
-let health = 100; // where r my crazy pills
-let nappyPoo = 100; // A nap taken before impending defecation. Ultimately leading to shitting one's pants
+let age = hunger = happiness = health = bathroom = restroom = 100; // tamagotchi stats
+let days = hr = min = sec = 0; // time settings
 
 // Once browser finishes loading, start timer and select 'eat' icon by default
 window.onload = function() {
-
   startTime = new Date();
   timerInterval = setInterval(function() {
     let currentTime = new Date();
-    let secondsElapsed = Math.floor((currentTime - startTime) / 1000);
-    if (secondsElapsed % 30 == 0) { 
-      let age = secondsElapsed / 30;
-      document.getElementById('age').textContent = age + " years\n"; 
-    }
-    if (secondsElapsed % 10 == 0) {
-        // Decrease stats by 5 but ensure they don't go below 0
-        hunger = Math.max(0, hunger - 5);
-        happiness = Math.max(0, happiness - 5);
-        health = Math.max(0, health - 5);
-        nappyPoo = Math.max(0, nappyPoo - 5);
+    secStats = Math.floor((currentTime - startTime) / 1000); // use for stats
 
-        // Cap stats at 100
-        hunger = Math.min(100, hunger);
-        happiness = Math.min(100, happiness);
-        health = Math.min(100, health);
-        nappyPoo = Math.min(100, nappyPoo);
-      // ik this looks ugly format wise but is only here temporarily to see if stats r functioning properly
-      document.getElementById('timer').textContent = "\nhunger: " + hunger + 
-      "\n| happiness: " + happiness + "\n| health: " + health + 
-      "\n| needa hit the shitter: " + nappyPoo;
+    // ============================= visual timer =============================
+    sec++; 
+    if (sec === 60) {
+      sec = 0;
+      min++;
+    }
+    if (min === 60) {
+      min = 0;
+      hr++;
+    }
+    if (hr === 24) {
+      // congrats on making it to 1 day, here is your reward!!!
+      window.close();
+    }
+
+    if (min < 10 && sec < 10) {
+      document.getElementById('time').textContent = "0" + hr + ":0" + min + ":0" + sec;
+    }
+    else if (min < 10 && sec >= 10) {
+      document.getElementById('time').textContent = "0" + hr + ":0" + min + ":" + sec;
+    }
+    else if (min >= 10 && sec < 10) {
+      document.getElementById('time').textContent = "0" + hr + ":0" + min + ":0" + sec;      
+    }
+    else if (min >= 10 && sec >= 10) {
+      document.getElementById('time').textContent = "0" + hr + ":" + min + ":" + sec;
+    }
+    // ========================================================================
+
+    // =========================== tamagotchi stats ===========================
+    // ================================= age ==================================
+    if (secStats % 30 == 0) { 
+      age = secStats / 30;
+      document.getElementById('age').textContent = "Age: " + age + " yr(s) old"; 
+    }
+
+    // ============================== well-being ==============================
+    // case #1 of slowly killing our tamagotchi
+    if (secStats % 3 == 0) {
+      // decrement stats by 1 every 3 sec, lower limit set to 0
+      hunger = Math.max(0, hunger - 1);
+      happiness = Math.max(0, happiness - 1);
+      health = Math.max(0, health - 1);
+      restroom = Math.max(0, restroom - 1);
+
+      // upper limit set to 100
+      hunger = Math.min(100, hunger);
+      happiness = Math.min(100, happiness);
+      health = Math.min(100, health);
+      restroom = Math.min(100, restroom);
+    }
+      // ugly format, keeping temporarily for testing purposes
+      document.getElementById('timer').textContent = "hunger: " + hunger + 
+      " | happiness: " + happiness + " | health: " + health + 
+      " | needa hit the shitter: " + restroom;
+
+    // case #2 of slowly killing our tamagotchi
+    if (secStats % 10 == 0) {
+      // decrease stats accordingly every 10 sec, lower limit set to 0
+      hunger = Math.max(0, hunger - 2);
+      happiness = Math.max(0, happiness - 1);
+      health = Math.max(0, health - 1);
+      restroom = Math.max(0, restroom - 3);
+
+      // upper limit set to 100
+      hunger = Math.min(100, hunger);
+      happiness = Math.min(100, happiness);
+      health = Math.min(100, health);
+      restroom = Math.min(100, restroom);
+    // ========================================================================
     }
   }, 1000);
   document.getElementById('eat').classList.add('selected');
 };
-
-// stop/clear timer: clearInterval(timerInterval);
 
 // functionality for btn 'A'
 /* 
@@ -80,23 +126,24 @@ document.getElementById('A').addEventListener('click', function() {
     }
 }); 
 
-
-
 // functionality for circularBtn 'B'
 document.getElementById('B').addEventListener('click', function() {
   // Retrieve icon with 'selected' to perform action based on id
   let selectedAction = document.querySelector('.btnIcon.selected');
   switch (selectedAction.id) {
     case 'eat':
-    showFoodMenu();
-      // var imgElement = document.getElementById('tamagotchi-character');
-      // imgElement.src = 'mimitchi-eating.gif';
-      // setTimeout(function() {
-      //   imgElement.src = 'mimitchi-bing-chilling.png';
-      // }, 1000);
-      // hunger += 10;
+      showFoodMenu();
+      /*
+      var imgElement = document.getElementById('tamagotchi-character');
+      imgElement.src = 'mimitchi-eating.gif';
+      setTimeout(function() {
+        imgElement.src = 'mimitchi-bing-chilling.png';
+      }, 1000);
+      hunger += 10;
+      */
       break;
     case 'play':
+      // handle 'selected' to traverse food menu
       var imgElement = document.getElementById('tamagotchi-character');
       imgElement.src = 'mimitchi-playing.gif';
       setTimeout(function() {
@@ -105,6 +152,7 @@ document.getElementById('B').addEventListener('click', function() {
       happiness += 10;
       break;
     case 'heal':
+      // handle 'selected' to traverse food menu
       var imgElement = document.getElementById('tamagotchi-character');
       imgElement.src = 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExank1bTlpY2Ewb2MwdTJ4dzRlZm5oc29kenhpMWpyZnRudGRpZzdxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkxfezUB7Rj4k/giphy.gif';
       setTimeout(function() {
@@ -118,7 +166,7 @@ document.getElementById('B').addEventListener('click', function() {
       setTimeout(function() {
         imgElement.src = 'mimitchi-bing-chilling.png';
       }, 2500);
-      nappyPoo += 10;
+      restroom += 10;
       break;
     case 'health':
       var imgElement = document.getElementById('tamagotchi-character');
@@ -175,11 +223,11 @@ function showFoodMenu() {
   let foodList = document.createElement('ul');
   foodList.classList.add('food-list');
   foodList.innerHTML = `
-    <li class="food-item">Hamburger <img src="./food/burgerImage.png" alt="Hamburger"></li>
-    <li class="food-item">Pizza <img src="./food/pizzaImage.png" alt="Pizza"></li>
-    <li class="food-item">Hotdog <img src="./food/hotdogImage.png" alt="Hotdog"></li>
-    <li class="food-item">Sushi <img src="./food/sushiImage.png" alt="Sushi"></li>
-    <li class="food-item">Sandwich <img src="./food/sandwichImage.png" alt="Sandwich"></li>
+    <li class="food-item"><button><img src="./food/burgerImage.png" alt="Hamburger"></button></li>
+    <li class="food-item"><button><img src="./food/pizzaImage.png" alt="Pizza"></button></li>
+    <li class="food-item"><button><img src="./food/hotdogImage.png" alt="Hotdog"></button></li>
+    <li class="food-item"><button><img src="./food/sushiImage.png" alt="Sushi"></button></li>
+    <li class="food-item"><button><img src="./food/sandwichImage.png" alt="Sandwich"></button></li>
   `;
   foodMenuDiv.appendChild(foodList);
 
@@ -224,3 +272,4 @@ function showDefaultImage() {
   // Append default image to screen content
   screenContent.innerHTML = `<img id="tamagotchi-character" class="action" src="mimitchi-bing-chilling.png" alt="action error nooo">`;
 }
+
