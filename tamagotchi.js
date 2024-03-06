@@ -169,10 +169,10 @@ function showFoodMenu() {
   foodList.classList.add('food-list');
   foodList.innerHTML = `
     <li class="food-item">Hamburger <img src="./food/burgerImage.png" alt="Hamburger"></li>
-    <li class="food-item">Pizza <img src="./food/pizzaImage.png" alt="Hamburger"></li>
-    <li class="food-item">Hotdog <img src="./food/hotdogImage.png" alt="Hamburger"></li>
-    <li class="food-item">Sushi</li>
-    <li class="food-item">Sandwich</li>
+    <li class="food-item">Pizza <img src="./food/pizzaImage.png" alt="Pizza"></li>
+    <li class="food-item">Hotdog <img src="./food/hotdogImage.png" alt="Hotdog"></li>
+    <li class="food-item">Sushi <img src="./food/sushiImage.png" alt="Sushi"></li>
+    <li class="food-item">Sandwich <img src="./food/sandwichImage.png" alt="Sandwich"></li>
   `;
   foodMenuDiv.appendChild(foodList);
 
