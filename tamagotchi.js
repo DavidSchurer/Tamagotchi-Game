@@ -26,16 +26,16 @@ window.onload = function() {
     }
 
     if (min < 10 && sec < 10) {
-      document.getElementById('time').textContent = "0" + hr + ":0" + min + ":0" + sec;
+      document.getElementById('time').textContent = "Time: 0" + hr + ":0" + min + ":0" + sec;
     }
     else if (min < 10 && sec >= 10) {
-      document.getElementById('time').textContent = "0" + hr + ":0" + min + ":" + sec;
+      document.getElementById('time').textContent = "Time: 0" + hr + ":0" + min + ":" + sec;
     }
     else if (min >= 10 && sec < 10) {
-      document.getElementById('time').textContent = "0" + hr + ":0" + min + ":0" + sec;      
+      document.getElementById('time').textContent = "Time: 0" + hr + ":0" + min + ":0" + sec;      
     }
     else if (min >= 10 && sec >= 10) {
-      document.getElementById('time').textContent = "0" + hr + ":" + min + ":" + sec;
+      document.getElementById('time').textContent = "Time: 0" + hr + ":" + min + ":" + sec;
     }
     // ==========================================================================
 
@@ -62,7 +62,7 @@ window.onload = function() {
       restroom = Math.min(100, restroom);
     }
     // ugly format, keeping temporarily for testing purposes
-    document.getElementById('timer').textContent = "hunger: " + hunger + 
+    document.getElementById('timer').textContent = "stats: hunger: " + hunger + 
     " | happiness: " + happiness + " | health: " + health + 
     " | bathroom: " + restroom;
 
@@ -191,9 +191,9 @@ document.getElementById('B').addEventListener('click', function() {
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            tamagotchiAction.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mametchi-eating.gif';
             setTimeout(function() {
-              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mametchi.webp';
             }, 1000);
             hunger += 10;
             // Place 'selected' back on 'eat' icon
@@ -208,9 +208,9 @@ document.getElementById('B').addEventListener('click', function() {
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            tamagotchiAction.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mametchi-eating.gif';
             setTimeout(function() {
-              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mametchi.webp';
             }, 1000);
             hunger += 10;
             document.getElementById('eat').classList.add('selected');
@@ -224,9 +224,9 @@ document.getElementById('B').addEventListener('click', function() {
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            tamagotchiAction.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mametchi-eating.gif';
             setTimeout(function() {
-              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mametchi.webp';
             }, 1000);
             hunger += 10;
             document.getElementById('eat').classList.add('selected');
@@ -240,9 +240,9 @@ document.getElementById('B').addEventListener('click', function() {
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            tamagotchiAction.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mametchi-eating.gif';
             setTimeout(function() {
-              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mametchi.webp';
             }, 1000);
             hunger += 10;
             document.getElementById('eat').classList.add('selected');
@@ -256,9 +256,9 @@ document.getElementById('B').addEventListener('click', function() {
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            tamagotchiAction.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mametchi-eating.gif';
             setTimeout(function() {
-              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mametchi.webp';
             }, 1000);
             hunger += 10;
             document.getElementById('eat').classList.add('selected');
@@ -271,10 +271,10 @@ document.getElementById('B').addEventListener('click', function() {
     // ============================= play ('B') =============================
     case 'play':
       var tamagotchiAction = document.getElementById('action');
-      tamagotchiAction.src = 'mimitchi-playing.gif';
+      tamagotchiAction.src = 'mametchi-play.gif';
       setTimeout(function() {
-        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
-      }, 2000);
+        tamagotchiAction.src = 'mametchi.webp';
+      }, 1500);
       happiness += 10;
       break;
     // ======================================================================
@@ -282,10 +282,10 @@ document.getElementById('B').addEventListener('click', function() {
     // ============================= heal ('B') =============================
     case 'heal':
       var tamagotchiAction = document.getElementById('action');
-      tamagotchiAction.src = 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExank1bTlpY2Ewb2MwdTJ4dzRlZm5oc29kenhpMWpyZnRudGRpZzdxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkxfezUB7Rj4k/giphy.gif';
+      tamagotchiAction.src = 'mametchi-heal.webp';
       setTimeout(function() {
-        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
-      }, 1750);
+        tamagotchiAction.src = 'mametchi.webp';
+      }, 1000);
       health += 10;
       break;
     // ======================================================================
@@ -293,10 +293,10 @@ document.getElementById('B').addEventListener('click', function() {
     // ============================= duck ('B') =============================     
     case 'duck':
       var tamagotchiAction = document.getElementById('action');
-      tamagotchiAction.src = 'https://c.tenor.com/KOiVAMtwvHgAAAAd/tenor.gif';
+      tamagotchiAction.src = 'mametchi-doing-the-deed.gif';
       setTimeout(function() {
-        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
-      }, 2500);
+        tamagotchiAction.src = 'mametchi.webp';
+      }, 3300);
       restroom += 10;
       break;
     // ======================================================================
@@ -304,20 +304,25 @@ document.getElementById('B').addEventListener('click', function() {
     // ========================== view stats ('B') ==========================
     case 'health':
       var tamagotchiAction = document.getElementById('action');
-      tamagotchiAction.src = 'mimitchi-angry.png';
+      var status = document.getElementById('stats');
       setTimeout(function() {
-        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
-      }, 1000);
-    // so this is where we take all of our global stat variables from above and display them
+        status.style.display = 'flex';
+        tamagotchiAction.style.display = 'none';
+        document.getElementById('stats').textContent = "Stats: hunger: " + hunger + 
+        "  happiness: " + happiness + " health: " + health + 
+        "  bathroom: " + restroom;
+      }, 3000);
+      tamagotchiAction.style.display = 'flex';
+      status.style.display = 'none';
       break;
     // ======================================================================
 
     // ========================== view stats ('B') ==========================      
     case 'attend':
       var tamagotchiAction = document.getElementById('action');
-      tamagotchiAction.src = 'mimitchi-happy.png';
+      tamagotchiAction.src = 'mametchi-attend.png';
       setTimeout(function() {
-        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
+        tamagotchiAction.src = 'mametchi.webp';
       }, 1000);
       happiness += 10;
       break;
