@@ -27,17 +27,17 @@
   color: #f4f5b2;
   text-shadow: 0 0 10px #ffffff;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 15%;
 }
 
 /* Text for Tamagotchi's age */
 .tamagotchi-age {
-  font-size: 90%;
+  font-size: 85%;
   font-weight: bold;
   color: rgb(146, 146, 193);
-  text-align: center;
+  text-align: left;
   font-family: 'Roboto', sans-serif;
-  margin-right: 25%;
+  margin-right: 5%;
 }
 
 /* Tamagotchi device's screen */
@@ -65,7 +65,7 @@
   height: 78px; /* divs take up entire height of their parent */
   padding-top: 10px;
   padding-bottom: 8px;
-  border-bottom: 5px solid #e9e344;
+  border-bottom: 5px solid #f6f6f0;
 }
 
 .screenContent {
@@ -110,7 +110,7 @@
   height: 78px;
   padding-top: 8px;
   padding-bottom: 10px;
-  border-top: 5px solid #e9e344;
+  border-top: 5px solid #f6f6f0;
 }
 
 .headerBtns button, .footerBtns button {
@@ -136,7 +136,7 @@
   height: 62px;
   border-radius: 50%;
   border-width: 8px;
-  border-color: #e9e344;
+  border-color: #d6d6d2;
   background-color: white;
 }
 
