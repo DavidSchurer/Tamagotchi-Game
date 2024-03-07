@@ -56,39 +56,57 @@
   overflow: hidden; /* prevent child content from overflowing div boundaries */
 }
 
-.screen-content {
-  flex-grow: 1; /* expands div to fill available space */
-  display: flex; /* center inner tamagotchi img */
-  justify-content: center;
-  align-items: center;
-}
-
-.screen-content img {
-  width: 300px;
-  height: 175px;
-  overflow: hidden;
-}
-
-.action {
-  max-width: 100%; /* tamagotchi img will not overflow into parent container's width */
-  max-height: 100%; /* tamagotchi img will not overflow into parent container's height */
-  border-radius: 7%;
-}
-
+/* Upper banner icons for actions: eat, play and heal */
 .headerBtns {
   display: flex;
   justify-content: center;
   width: 100%; /* divs take up entire width of their parent */
-  height: 100%; /* divs take up entire height of their parent */
+  height: 78px; /* divs take up entire height of their parent */
   padding-top: 10px;
   padding-bottom: 8px;
   border-bottom: 5px solid #e9e344;
+}
+
+.screenContent {
+  flex-grow: 1; /* expands div to fill available space */
+  display: flex; /* center inner tamagotchi img */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 300px;
+  height: 175px;
+}
+
+.screenContent img {
+  width: 300px;
+  height: 149px;
+  overflow: hidden;
+}
+
+.screenContent .tamagotchi-character {
+  display: flex;
+}
+
+.screenContent .foodItem {
+  width: 45px;
+  height: 45px;
+  margin: 4px;
+  padding: 4px;
+  border: 1px;
+  background: none;
+  display: none;
+} 
+
+.foodItem img {
+  width: 100%;
+  height: 100%;
 }
 
 .footerBtns {
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 78px;
   padding-top: 8px;
   padding-bottom: 10px;
   border-top: 5px solid #e9e344;
@@ -137,43 +155,18 @@
   100% { background-color: #cccccc; }
 }
 
-.food-menu {
-  width: 300px;
-  height: 175px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+.screenContent .foodItem.foodSelected {
+  animation: foodSelected 0.72s infinite;
 }
 
-.food-item {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-}
-
-.food-menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-top: -10px;
-}
-
-.food-menu li {
-  font-size: 10px;
-  cursor: pointer;
-}
-
-.food-menu li.selected {
-  background-color: #ccc;
-}
-
-.food-item img {
-  width: 50px;
-  height: 50px;
-  margin-left: 5px;
-  vertical-align: middle;
-}
-
-.food-list {
-  overflow-y: auto;
+@keyframes foodSelected {
+  0% { background-color: #6b6b6b; }
+  12% { background-color: #737373; }
+  25% { background-color: #808080; }
+  38% { background-color: #919191; }
+  50% { background-color: #adadad; }
+  63% { background-color: #b1b1b1; }
+  75% { background-color: #bfbfbf; }
+  88% { background-color: #cacaca; }
+  100% { background-color: #cccccc; }
 }
