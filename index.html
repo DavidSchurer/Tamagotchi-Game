@@ -1,53 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Specifies the document type and version of HTML -->
+<html lang="en"> <!-- Defines the root element of the HTML document with the language attribute set to English -->
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML, CSS, JavaScript, CSS481, Tamagotchi">
-    <title>MyTamaFriend</title>
-    <link rel="icon" href="tamagotchiLightBlueIcon.png">
-    <link rel="stylesheet" href="tamagotchi.css">
+    <!-- Metadata for character encoding, viewport configuration, and keywords -->
+    <meta charset="UTF-8"> <!-- Defines the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configures the viewport for mobile devices -->
+    <meta name="keywords" content="HTML, CSS, JavaScript, CSS481, Tamagotchi"> <!-- Provides keywords for search engine optimization -->
+    <title>MyTamaFriend</title> <!-- Sets the title of the document -->
+    <link rel="icon" href="tamagotchiLightBlueIcon.png"> <!-- Specifies the favicon for the webpage -->
+    <link rel="stylesheet" href="tamagotchi.css"> <!-- Links the external CSS stylesheet -->
   </head>
   <body>
+    <!-- Main content of the webpage -->
     <div class="egg">
-      <h1 class="tamagotchi-name">Mimitchi</h1>
+      <!-- Main container for the Tamagotchi game -->
+      <h1 class="tamagotchi-name">Mimitchi</h1> <!-- Header with the Tamagotchi's name -->
       <h2 class="tamagotchi-age" style="position: fixed; top: 50px; left: 10px;">
-        Time: <p id="time">00:00:00</p>
-        <p id="age">Age: 0 yr(s) old</p>
-        other time metric stuff: <p id="timer">loading...</p>
-      </h2> 
+        <!-- Header with Tamagotchi's age and time -->
+        Time: <p id="time">00:00:00</p> <!-- Displays current time -->
+        <p id="age">Age: 0 yr(s) old</p> <!-- Displays Tamagotchi's age -->
+        other time metric stuff: <p id="timer">loading...</p> <!-- Additional time-related information -->
+      </h2>
 
+      <!-- Main screen area for displaying Tamagotchi actions and interactions -->
       <div class="screen">
-        <div class="headerBtns"> 
-          <button id="eat" class="btnIcon"><img src="/icons/eat-icon.png" alt="Eat"></button> <!--Eat-->
-          <button id="play" class="btnIcon"><img src="/icons/play-icon.png" alt="Play"></button> <!--Play-->
-          <button id="heal" class="btnIcon"><img src="/icons/heal-icon.png" alt="Heal"></button> <!--Heal-->
+        <!-- Container for header buttons -->
+        <div class="headerBtns">
+          <!-- Buttons for performing actions like eating, playing, and healing -->
+          <button id="eat" class="btnIcon"><img src="./icons/eat-icon.png" alt="Eat"></button> <!-- Eat button -->
+          <button id="play" class="btnIcon"><img src="./icons/play-icon.png" alt="Play"></button> <!-- Play button -->
+          <button id="heal" class="btnIcon"><img src="./icons/heal-icon.png" alt="Heal"></button> <!-- Heal button -->
         </div>
 
+        <!-- Container for food items and Tamagotchi character -->
         <div id="screenContent" class="screenContent">
-          <button id="food1" class="foodItem" ><img src="/food/hotdogImage.png" alt="hotdog"></button>
-          <button id="food2" class="foodItem"><img src="/food/pizzaImage.png" alt="pizza"></button>
-          <button id="food3" class="foodItem"><img src="/food/sandwichImage.png" alt="sandwich"></button>
-          <button id="food4" class="foodItem"><img src="/food/sushiImage.png" alt="sushi"></button>
-          <button id="food5" class="foodItem"><img src="/food/burgerImage.png" alt="burger"></button>
+          <!-- Food buttons for feeding the Tamagotchi -->
+          <button id="food1" class="foodItem" ><img src="./food/hotdogImage.png" alt="hotdog"></button>
+          <button id="food2" class="foodItem"><img src="./food/pizzaImage.png" alt="pizza"></button>
+          <button id="food3" class="foodItem"><img src="./food/sandwichImage.png" alt="sandwich"></button>
+          <button id="food4" class="foodItem"><img src="./food/sushiImage.png" alt="sushi"></button>
+          <button id="food5" class="foodItem"><img src="./food/burgerImage.png" alt="burger"></button>
+          <!-- Image element for displaying the Tamagotchi character -->
           <img id="action" class="tamagotchi-character" src="mimitchi-bing-chilling.png" alt="action error nooo">
         </div>
 
+        <!-- Container for footer buttons -->
         <div class="footerBtns">
-          <button id="duck" class="btnIcon"><img src="/icons/duck-icon.png" alt="Duck"></button> <!--Duck-->
-          <button id="health" class="btnIcon"><img src="/icons/health-icon.png" alt="Health status"></button> <!--Health meter-->
-          <button id="attend" class="btnIcon"><img src="/icons/attend-icon.png" alt="Attend"></button> <!--Attend-->
+          <!-- Buttons for additional actions like ducking, checking health, and attending -->
+          <button id="duck" class="btnIcon"><img src="./icons/duck-icon.png" alt="Duck"></button> <!-- Duck button -->
+          <button id="health" class="btnIcon"><img src="./icons/health-icon.png" alt="Health status"></button> <!-- Health button -->
+          <button id="attend" class="btnIcon"><img src="./icons/attend-icon.png" alt="Attend"></button> <!-- Attend button -->
         </div>
       </div>
 
+      <!-- Container for circular buttons -->
       <div class="circularBtns">
+        <!-- Circular buttons for user interaction -->
         <button id="A" class="circularBtn">A</button>
         <button id="B" class="circularBtn" style="margin-top: 38px">B</button>
         <button id="C" class="circularBtn">C</button>
       </div>
     </div>
 
+    <!-- External JavaScript file for implementing game functionality -->
     <script src="tamagotchi.js"></script>
+    <!-- Noscript tag for displaying a message if JavaScript is disabled -->
     <noscript>enable JavaScript pls</noscript>
   </body>
 </html>
