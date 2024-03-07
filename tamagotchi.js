@@ -1,8 +1,9 @@
+// ============================= global variables =============================
 let startTime;
-let age = hunger = happiness = health = bathroom = restroom = 100; // tamagotchi stats
+let age = hunger = happiness = health = bathroom = restroom = 100; // stats
 let days = hr = min = sec = 0; // time settings
 
-// Once browser finishes loading, start timer and select 'eat' icon by default
+// Once browser finishes loading, start timer and set 'eat' icon to default
 window.onload = function() {
   startTime = new Date();
   timerInterval = setInterval(function() {
@@ -36,7 +37,7 @@ window.onload = function() {
     else if (min >= 10 && sec >= 10) {
       document.getElementById('time').textContent = "0" + hr + ":" + min + ":" + sec;
     }
-    // ========================================================================
+    // ==========================================================================
 
     // =========================== tamagotchi stats ===========================
     // ================================= age ==================================
@@ -60,10 +61,10 @@ window.onload = function() {
       health = Math.min(100, health);
       restroom = Math.min(100, restroom);
     }
-      // ugly format, keeping temporarily for testing purposes
-      document.getElementById('timer').textContent = "hunger: " + hunger + 
-      " | happiness: " + happiness + " | health: " + health + 
-      " | needa hit the shitter: " + restroom;
+    // ugly format, keeping temporarily for testing purposes
+    document.getElementById('timer').textContent = "hunger: " + hunger + 
+    " | happiness: " + happiness + " | health: " + health + 
+    " | bathroom: " + restroom;
 
     // case #2 of slowly killing our tamagotchi
     if (secStats % 10 == 0) {
@@ -83,16 +84,9 @@ window.onload = function() {
   }, 1000);
   document.getElementById('eat').classList.add('selected');
 };
+// ============================================================================
 
-// functionality for btn 'A'
-/* 
-this implementation only works for traversing icons. problems will occur 
-in the instance of traversing a menu. e.g. user clicks 'B' on 'eat' icon
-which should open a menu of food options to feed our tamagotchi.
-user wants to press 'A' to traverse the menu but itll just fuck shit up 
-since this implementation only traverses icons lol so we might have to create 
-separate functions that handle 'A' btn clicks depending on where the user is at
-*/
+// ===================== traverse icons (circularBtn 'A') =====================
 document.getElementById('A').addEventListener('click', function() {
   // Retrieve icon with 'selected' to use id to traverse to next icon
   let selectedAction = document.querySelector('.btnIcon.selected');
@@ -125,21 +119,22 @@ document.getElementById('A').addEventListener('click', function() {
       break;
     }
 }); 
+// ============================================================================
 
-// functionality for circularBtn 'B'
+// ===================== icon execution (circularBtn 'B') =====================
 document.getElementById('B').addEventListener('click', function() {
   // Retrieve icon with 'selected' to perform action based on id
   let selectedAction = document.querySelector('.btnIcon.selected');
   switch (selectedAction.id) {
     case 'eat':
       // Open food menu
-      var imgElement = document.getElementById('action');
+      var tamagotchiAction = document.getElementById('action');
       var foodItem1 = document.getElementById('food1');
       var foodItem2 = document.getElementById('food2');
       var foodItem3 = document.getElementById('food3');
       var foodItem4 = document.getElementById('food4');
       var foodItem5 = document.getElementById('food5');
-      imgElement.style.display = 'none';
+      tamagotchiAction.style.display = 'none';
       foodItem1.style.display = 'flex';
       foodItem2.style.display = 'flex';
       foodItem3.style.display = 'flex';
@@ -151,9 +146,9 @@ document.getElementById('B').addEventListener('click', function() {
       // apply selected to hotdog by default
       document.getElementById('food1').classList.add('foodSelected');
       
-      // handle food menu traversal
+      // ===================== traverse food icons ('B') ======================
       document.getElementById('A').addEventListener('click', function() {
-        let selectedFood = document.querySelector('.foodItem.foodSelected');
+      let selectedFood = document.querySelector('.foodItem.foodSelected');
         switch (selectedFood.id) {
           case 'food1':
             // Remove 'foodSelected' from current food icon
@@ -179,7 +174,9 @@ document.getElementById('B').addEventListener('click', function() {
             break;
         }
       });
-      // handle food selection
+      // ======================================================================
+
+      // ========================= select food ('B') ==========================
       document.getElementById('B').addEventListener('click', function() {
         // Choose which food to feed tamagotchi food icon         
         let selectedFood = document.querySelector('.foodItem.foodSelected');
@@ -187,135 +184,147 @@ document.getElementById('B').addEventListener('click', function() {
           case 'food1':
             // Remove foodSelected icon
             selectedFood.classList.remove('foodSelected');
-            var imgElement = document.getElementById('action');
-            imgElement.style.display = 'flex';
+            var tamagotchiAction = document.getElementById('action');
+            tamagotchiAction.style.display = 'flex';
             foodItem1.style.display = 'none';
             foodItem2.style.display = 'none';
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            imgElement.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mimitchi-eating.gif';
             setTimeout(function() {
-              imgElement.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
             }, 1000);
             hunger += 10;
             // Place 'selected' back on 'eat' icon
             document.getElementById('eat').classList.add('selected');
             break;
           case 'food2':
-            // Remove foodSelected icon
             selectedFood.classList.remove('foodSelected');
-            var imgElement = document.getElementById('action');
-            imgElement.style.display = 'flex';
+            var tamagotchiAction = document.getElementById('action');
+            tamagotchiAction.style.display = 'flex';
             foodItem1.style.display = 'none';
             foodItem2.style.display = 'none';
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            imgElement.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mimitchi-eating.gif';
             setTimeout(function() {
-              imgElement.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
             }, 1000);
             hunger += 10;
             document.getElementById('eat').classList.add('selected');
             break;
           case 'food3':
-            // Remove foodSelected icon
             selectedFood.classList.remove('foodSelected');
-            var imgElement = document.getElementById('action');
-            imgElement.style.display = 'flex';
+            var tamagotchiAction = document.getElementById('action');
+            tamagotchiAction.style.display = 'flex';
             foodItem1.style.display = 'none';
             foodItem2.style.display = 'none';
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            imgElement.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mimitchi-eating.gif';
             setTimeout(function() {
-              imgElement.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
             }, 1000);
             hunger += 10;
             document.getElementById('eat').classList.add('selected');
             break;
           case 'food4':
-            // Remove foodSelected icon
             selectedFood.classList.remove('foodSelected');
-            var imgElement = document.getElementById('action');
-            imgElement.style.display = 'flex';
+            var tamagotchiAction = document.getElementById('action');
+            tamagotchiAction.style.display = 'flex';
             foodItem1.style.display = 'none';
             foodItem2.style.display = 'none';
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            imgElement.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mimitchi-eating.gif';
             setTimeout(function() {
-              imgElement.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
             }, 1000);
             hunger += 10;
             document.getElementById('eat').classList.add('selected');
             break;
           case 'food5':
             selectedFood.classList.remove('foodSelected');
-            var imgElement = document.getElementById('action');
-            imgElement.style.display = 'flex';
+            var tamagotchiAction = document.getElementById('action');
+            tamagotchiAction.style.display = 'flex';
             foodItem1.style.display = 'none';
             foodItem2.style.display = 'none';
             foodItem3.style.display = 'none';
             foodItem4.style.display = 'none';
             foodItem5.style.display = 'none';
-            imgElement.src = 'mimitchi-eating.gif';
+            tamagotchiAction.src = 'mimitchi-eating.gif';
             setTimeout(function() {
-              imgElement.src = 'mimitchi-bing-chilling.png';
+              tamagotchiAction.src = 'mimitchi-bing-chilling.png';
             }, 1000);
             hunger += 10;
             document.getElementById('eat').classList.add('selected');
             break;      
-      }
-    });
+        }
+      });
       break;
+    // ======================================================================
+
+    // ============================= play ('B') =============================
     case 'play':
-      // handle 'selected' to traverse food menu
-      var imgElement = document.getElementById('action');
-      imgElement.src = 'mimitchi-playing.gif';
+      var tamagotchiAction = document.getElementById('action');
+      tamagotchiAction.src = 'mimitchi-playing.gif';
       setTimeout(function() {
-        imgElement.src = 'mimitchi-bing-chilling.png';
+        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
       }, 2000);
       happiness += 10;
       break;
+    // ======================================================================
+
+    // ============================= heal ('B') =============================
     case 'heal':
-      // handle 'selected' to traverse food menu
-      var imgElement = document.getElementById('action');
-      imgElement.src = 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExank1bTlpY2Ewb2MwdTJ4dzRlZm5oc29kenhpMWpyZnRudGRpZzdxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkxfezUB7Rj4k/giphy.gif';
+      var tamagotchiAction = document.getElementById('action');
+      tamagotchiAction.src = 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExank1bTlpY2Ewb2MwdTJ4dzRlZm5oc29kenhpMWpyZnRudGRpZzdxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkxfezUB7Rj4k/giphy.gif';
       setTimeout(function() {
-        imgElement.src = 'mimitchi-bing-chilling.png';
+        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
       }, 1750);
       health += 10;
       break;
+    // ======================================================================
+      
+    // ============================= duck ('B') =============================     
     case 'duck':
-      var imgElement = document.getElementById('action');
-      imgElement.src = 'https://c.tenor.com/KOiVAMtwvHgAAAAd/tenor.gif';
+      var tamagotchiAction = document.getElementById('action');
+      tamagotchiAction.src = 'https://c.tenor.com/KOiVAMtwvHgAAAAd/tenor.gif';
       setTimeout(function() {
-        imgElement.src = 'mimitchi-bing-chilling.png';
+        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
       }, 2500);
       restroom += 10;
       break;
+    // ======================================================================
+      
+    // ========================== view stats ('B') ==========================
     case 'health':
-      var imgElement = document.getElementById('action');
-      imgElement.src = 'mimitchi-angry.png';
+      var tamagotchiAction = document.getElementById('action');
+      tamagotchiAction.src = 'mimitchi-angry.png';
       setTimeout(function() {
-        imgElement.src = 'mimitchi-bing-chilling.png';
+        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
       }, 1000);
-      // so this is where we take all of our global stat variables from above and display them
+    // so this is where we take all of our global stat variables from above and display them
       break;
+    // ======================================================================
+
+    // ========================== view stats ('B') ==========================      
     case 'attend':
-      var imgElement = document.getElementById('action');
-      imgElement.src = 'mimitchi-happy.png';
+      var tamagotchiAction = document.getElementById('action');
+      tamagotchiAction.src = 'mimitchi-happy.png';
       setTimeout(function() {
-        imgElement.src = 'mimitchi-bing-chilling.png';
+        tamagotchiAction.src = 'mimitchi-bing-chilling.png';
       }, 1000);
       happiness += 10;
       break;
+    // ============================================================================
     }
 }); 
+// ============================================================================
 
 // functionality for circularBtn 'C'
 /* 
@@ -323,8 +332,4 @@ circularBtn 'C' serves as a cancel btn: e.g. user presses 'B' on the 'eat'
 icon, which will open a menu of food options. From there, the user can 
 traverse the menu with 'A', select food option to feed tamagotchi with 'B',
 or 'C' to go back to main screen.
-
-idk how far our implementations will go, but i'll assume the most we'll do
-is like one pop-up per icon so rly we can just make it so 'C' returns user
-to the main screen, making it seem like it functions as a back btn.
 */
