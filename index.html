@@ -12,25 +12,31 @@
     <div class="egg">
       <h1 class="tamagotchi-name">Mimitchi</h1>
       <h2 class="tamagotchi-age" style="position: fixed; top: 50px; left: 10px;">
-        Age: <p id="age"> years</p>
-        other time metric stuff: <p id="timer">give it 5s</p>
+        Time: <p id="time">00:00:00</p>
+        <p id="age">Age: 0 yr(s) old</p>
+        other time metric stuff: <p id="timer">loading...</p>
       </h2> 
 
       <div class="screen">
         <div class="headerBtns"> 
-          <button id="eat" class="btnIcon"><img src="./icons/eat-icon.png" alt="Eat"></button> <!--Eat-->
-          <button id="play" class="btnIcon"><img src="./icons/play-icon.png" alt="Play"></button> <!--Play-->
-          <button id="heal" class="btnIcon"><img src="./icons/heal-icon.png" alt="Heal"></button> <!--Heal-->
+          <button id="eat" class="btnIcon"><img src="/icons/eat-icon.png" alt="Eat"></button> <!--Eat-->
+          <button id="play" class="btnIcon"><img src="/icons/play-icon.png" alt="Play"></button> <!--Play-->
+          <button id="heal" class="btnIcon"><img src="/icons/heal-icon.png" alt="Heal"></button> <!--Heal-->
         </div>
 
-        <div class="screen-content">
-          <img id="tamagotchi-character" class="action" src="mimitchi-bing-chilling.png" alt="action error nooo">
+        <div id="screenContent" class="screenContent">
+          <button id="food1" class="foodItem" ><img src="/food/hotdogImage.png" alt="hotdog"></button>
+          <button id="food2" class="foodItem"><img src="/food/pizzaImage.png" alt="pizza"></button>
+          <button id="food3" class="foodItem"><img src="/food/sandwichImage.png" alt="sandwich"></button>
+          <button id="food4" class="foodItem"><img src="/food/sushiImage.png" alt="sushi"></button>
+          <button id="food5" class="foodItem"><img src="/food/burgerImage.png" alt="burger"></button>
+          <img id="action" class="tamagotchi-character" src="mimitchi-bing-chilling.png" alt="action error nooo">
         </div>
 
         <div class="footerBtns">
-          <button id="duck" class="btnIcon"><img src="./icons/duck-icon.png" alt="Duck"></button> <!--Duck-->
-          <button id="health" class="btnIcon"><img src="./icons/health-icon.png" alt="Health status"></button> <!--Health meter-->
-          <button id="attend" class="btnIcon"><img src="./icons/attend-icon.png" alt="Attend"></button> <!--Attend-->
+          <button id="duck" class="btnIcon"><img src="/icons/duck-icon.png" alt="Duck"></button> <!--Duck-->
+          <button id="health" class="btnIcon"><img src="/icons/health-icon.png" alt="Health status"></button> <!--Health meter-->
+          <button id="attend" class="btnIcon"><img src="/icons/attend-icon.png" alt="Attend"></button> <!--Attend-->
         </div>
       </div>
 
