@@ -132,19 +132,149 @@ document.getElementById('B').addEventListener('click', function() {
   let selectedAction = document.querySelector('.btnIcon.selected');
   switch (selectedAction.id) {
     case 'eat':
-      showFoodMenu();
-      /*
-      var imgElement = document.getElementById('tamagotchi-character');
-      imgElement.src = 'mimitchi-eating.gif';
-      setTimeout(function() {
-        imgElement.src = 'mimitchi-bing-chilling.png';
-      }, 1000);
-      hunger += 10;
-      */
+      // Open food menu
+      var imgElement = document.getElementById('action');
+      var foodItem1 = document.getElementById('food1');
+      var foodItem2 = document.getElementById('food2');
+      var foodItem3 = document.getElementById('food3');
+      var foodItem4 = document.getElementById('food4');
+      var foodItem5 = document.getElementById('food5');
+      imgElement.style.display = 'none';
+      foodItem1.style.display = 'flex';
+      foodItem2.style.display = 'flex';
+      foodItem3.style.display = 'flex';
+      foodItem4.style.display = 'flex';
+      foodItem5.style.display = 'flex';
+
+      // temporarily get rid of 'selected' icon
+      selectedAction.classList.remove('selected');
+      // apply selected to hotdog by default
+      document.getElementById('food1').classList.add('foodSelected');
+      
+      // handle food menu traversal
+      document.getElementById('A').addEventListener('click', function() {
+        let selectedFood = document.querySelector('.foodItem.foodSelected');
+        switch (selectedFood.id) {
+          case 'food1':
+            // Remove 'foodSelected' from current food icon
+            selectedFood.classList.remove('foodSelected');
+            // Move 'foodSelected' to next food icon
+            document.getElementById('food2').classList.add('foodSelected');
+            break;
+          case 'food2':
+            selectedFood.classList.remove('foodSelected');
+            document.getElementById('food3').classList.add('foodSelected');
+            break;
+          case 'food3':
+            selectedFood.classList.remove('foodSelected');
+            document.getElementById('food4').classList.add('foodSelected');
+            break;
+          case 'food4':
+            selectedFood.classList.remove('foodSelected');
+            document.getElementById('food5').classList.add('foodSelected');
+            break;
+          case 'food5':
+            selectedFood.classList.remove('foodSelected');
+            document.getElementById('food1').classList.add('foodSelected');
+            break;
+        }
+      });
+      // handle food selection
+      document.getElementById('B').addEventListener('click', function() {
+        // Choose which food to feed tamagotchi food icon         
+        let selectedFood = document.querySelector('.foodItem.foodSelected');
+        switch (selectedFood.id) {
+          case 'food1':
+            // Remove foodSelected icon
+            selectedFood.classList.remove('foodSelected');
+            var imgElement = document.getElementById('action');
+            imgElement.style.display = 'flex';
+            foodItem1.style.display = 'none';
+            foodItem2.style.display = 'none';
+            foodItem3.style.display = 'none';
+            foodItem4.style.display = 'none';
+            foodItem5.style.display = 'none';
+            imgElement.src = 'mimitchi-eating.gif';
+            setTimeout(function() {
+              imgElement.src = 'mimitchi-bing-chilling.png';
+            }, 1000);
+            hunger += 10;
+            // Place 'selected' back on 'eat' icon
+            document.getElementById('eat').classList.add('selected');
+            break;
+          case 'food2':
+            // Remove foodSelected icon
+            selectedFood.classList.remove('foodSelected');
+            var imgElement = document.getElementById('action');
+            imgElement.style.display = 'flex';
+            foodItem1.style.display = 'none';
+            foodItem2.style.display = 'none';
+            foodItem3.style.display = 'none';
+            foodItem4.style.display = 'none';
+            foodItem5.style.display = 'none';
+            imgElement.src = 'mimitchi-eating.gif';
+            setTimeout(function() {
+              imgElement.src = 'mimitchi-bing-chilling.png';
+            }, 1000);
+            hunger += 10;
+            document.getElementById('eat').classList.add('selected');
+            break;
+          case 'food3':
+            // Remove foodSelected icon
+            selectedFood.classList.remove('foodSelected');
+            var imgElement = document.getElementById('action');
+            imgElement.style.display = 'flex';
+            foodItem1.style.display = 'none';
+            foodItem2.style.display = 'none';
+            foodItem3.style.display = 'none';
+            foodItem4.style.display = 'none';
+            foodItem5.style.display = 'none';
+            imgElement.src = 'mimitchi-eating.gif';
+            setTimeout(function() {
+              imgElement.src = 'mimitchi-bing-chilling.png';
+            }, 1000);
+            hunger += 10;
+            document.getElementById('eat').classList.add('selected');
+            break;
+          case 'food4':
+            // Remove foodSelected icon
+            selectedFood.classList.remove('foodSelected');
+            var imgElement = document.getElementById('action');
+            imgElement.style.display = 'flex';
+            foodItem1.style.display = 'none';
+            foodItem2.style.display = 'none';
+            foodItem3.style.display = 'none';
+            foodItem4.style.display = 'none';
+            foodItem5.style.display = 'none';
+            imgElement.src = 'mimitchi-eating.gif';
+            setTimeout(function() {
+              imgElement.src = 'mimitchi-bing-chilling.png';
+            }, 1000);
+            hunger += 10;
+            document.getElementById('eat').classList.add('selected');
+            break;
+          case 'food5':
+            selectedFood.classList.remove('foodSelected');
+            var imgElement = document.getElementById('action');
+            imgElement.style.display = 'flex';
+            foodItem1.style.display = 'none';
+            foodItem2.style.display = 'none';
+            foodItem3.style.display = 'none';
+            foodItem4.style.display = 'none';
+            foodItem5.style.display = 'none';
+            imgElement.src = 'mimitchi-eating.gif';
+            setTimeout(function() {
+              imgElement.src = 'mimitchi-bing-chilling.png';
+            }, 1000);
+            hunger += 10;
+            document.getElementById('eat').classList.add('selected');
+            break;      
+      }
+    });
       break;
     case 'play':
       // handle 'selected' to traverse food menu
-      var imgElement = document.getElementById('tamagotchi-character');
+      var imgElement = document.getElementById('action');
       imgElement.src = 'mimitchi-playing.gif';
       setTimeout(function() {
         imgElement.src = 'mimitchi-bing-chilling.png';
@@ -153,7 +283,7 @@ document.getElementById('B').addEventListener('click', function() {
       break;
     case 'heal':
       // handle 'selected' to traverse food menu
-      var imgElement = document.getElementById('tamagotchi-character');
+      var imgElement = document.getElementById('action');
       imgElement.src = 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExank1bTlpY2Ewb2MwdTJ4dzRlZm5oc29kenhpMWpyZnRudGRpZzdxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkxfezUB7Rj4k/giphy.gif';
       setTimeout(function() {
         imgElement.src = 'mimitchi-bing-chilling.png';
@@ -161,7 +291,7 @@ document.getElementById('B').addEventListener('click', function() {
       health += 10;
       break;
     case 'duck':
-      var imgElement = document.getElementById('tamagotchi-character');
+      var imgElement = document.getElementById('action');
       imgElement.src = 'https://c.tenor.com/KOiVAMtwvHgAAAAd/tenor.gif';
       setTimeout(function() {
         imgElement.src = 'mimitchi-bing-chilling.png';
@@ -169,7 +299,7 @@ document.getElementById('B').addEventListener('click', function() {
       restroom += 10;
       break;
     case 'health':
-      var imgElement = document.getElementById('tamagotchi-character');
+      var imgElement = document.getElementById('action');
       imgElement.src = 'mimitchi-angry.png';
       setTimeout(function() {
         imgElement.src = 'mimitchi-bing-chilling.png';
@@ -177,7 +307,7 @@ document.getElementById('B').addEventListener('click', function() {
       // so this is where we take all of our global stat variables from above and display them
       break;
     case 'attend':
-      var imgElement = document.getElementById('tamagotchi-character');
+      var imgElement = document.getElementById('action');
       imgElement.src = 'mimitchi-happy.png';
       setTimeout(function() {
         imgElement.src = 'mimitchi-bing-chilling.png';
@@ -198,78 +328,3 @@ idk how far our implementations will go, but i'll assume the most we'll do
 is like one pop-up per icon so rly we can just make it so 'C' returns user
 to the main screen, making it seem like it functions as a back btn.
 */
-document.getElementById('C').addEventListener('click', function() {
-  let selectedAction = document.querySelector('.btnIcon.selected');
-
-  switch (selectedAction.id) {
-    case 'eat':
-      hideFoodMenu();
-      showDefaultImage();
-      break;
-    // Handle other actions...
-  }
-});
-
-function showFoodMenu() {
-  let screenContent = document.querySelector('.screen-content');
-  let foodMenuDiv = document.createElement('div');
-  foodMenuDiv.classList.add('food-menu');
-
-  let foodMenuTitle = document.createElement('h6');
-  foodMenuTitle.textContent = 'Food Menu';
-  foodMenuDiv.appendChild(foodMenuTitle);
-
-  // Create and append the list of food items
-  let foodList = document.createElement('ul');
-  foodList.classList.add('food-list');
-  foodList.innerHTML = `
-    <li class="food-item"><button><img src="./food/burgerImage.png" alt="Hamburger"></button></li>
-    <li class="food-item"><button><img src="./food/pizzaImage.png" alt="Pizza"></button></li>
-    <li class="food-item"><button><img src="./food/hotdogImage.png" alt="Hotdog"></button></li>
-    <li class="food-item"><button><img src="./food/sushiImage.png" alt="Sushi"></button></li>
-    <li class="food-item"><button><img src="./food/sandwichImage.png" alt="Sandwich"></button></li>
-  `;
-  foodMenuDiv.appendChild(foodList);
-
-  // Clear existing content and append the food menu
-  screenContent.innerHTML = '';
-  screenContent.appendChild(foodMenuDiv);
-
-  let maxHeight = screenContent.clientHeight - foodMenuTitle.clientHeight - 20;
-  foodList.style.maxHeight = maxheight + 'px';
-
-  // Set initial focus on the first food item
-  let firstFoodItem = document.querySelector('.food-item');
-  firstFoodItem.classList.add('selected');
-  firstFoodItem.focus();
-
-  // Add event listener for circular A button to cycle through food items
-  document.getElementById('A').addEventListener('click', function() {
-    let selectedFoodItem = document.querySelector('.food-item.selected');
-    let nextFoodItem = selectedFoodItem.nextElementSibling;
-
-    // If there is a next food item, move selection to it
-    if (nextFoodItem) {
-      selectedFoodItem.classList.remove('selected');
-      nextFoodItem.classList.add('selected');
-    } else {
-      // If at the end, loop back to the first food item
-      let firstFoodItem = document.querySelector('.food-item');
-      selectedFoodItem.classList.remove('selected');
-      firstFoodItem.classList.add('selected');
-    }
-  });
-}
-
-function hideFoodMenu() {
-  let screenContent = document.querySelector('.screen-content');
-  // Clear screen content
-  screenContent.innerHTML = '';
-}
-
-function showDefaultImage() {
-  let screenContent = document.querySelector('.screen-content');
-  // Append default image to screen content
-  screenContent.innerHTML = `<img id="tamagotchi-character" class="action" src="mimitchi-bing-chilling.png" alt="action error nooo">`;
-}
-
