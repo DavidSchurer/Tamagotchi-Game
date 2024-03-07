@@ -4,6 +4,9 @@
   src: url('/tamagotchi.ttf') format('truetype');
 }
 
+body {
+  background-color: rgb(137, 160, 114);
+}
 /* Egg-shape to resemble Tamagotchi device */
 .egg {
   display: flex;
@@ -12,7 +15,7 @@
   height: 700px;
   max-width: calc(700px * 0.8);
   border-radius: 60% / 70% 70% 50% 50%; 
-  background-color: lightblue;
+  background-color: rgb(91, 113, 170);
   margin: auto;
   margin-top: 45px; 
   margin-bottom: 50px; 
@@ -24,8 +27,8 @@
   font-family: 'Tamagotchi';
   font-size: 28px;
   font-weight: bold;
-  color: #f4f5b2;
-  text-shadow: 0 0 10px #ffffff;
+  color: #e8e8ff;
+  text-shadow: 0 0 10px #a9bce1;
   text-align: center;
   margin-top: 15%;
 }
@@ -34,7 +37,7 @@
 .tamagotchi-age {
   font-size: 85%;
   font-weight: bold;
-  color: rgb(146, 146, 193);
+  color: rgb(242, 240, 230);
   text-align: left;
   font-family: 'Roboto', sans-serif;
   margin-right: 5%;
@@ -51,7 +54,7 @@
   border-radius: 10%;
   margin-top: 13%;
   margin-bottom: 2%;
-  border: 5px solid #e9e344;
+  border: 5px solid #411577;
   box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
   padding: 10px, 5px; 
   overflow: hidden; /* prevent child content from overflowing div boundaries */
