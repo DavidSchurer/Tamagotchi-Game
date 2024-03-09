@@ -62,10 +62,7 @@ window.onload = function() {
       restroom = Math.min(100, restroom);
     }
     // ugly format, keeping temporarily for testing purposes
-    document.getElementById('timer').textContent = "stats: hunger: " + hunger + 
-    " | happiness: " + happiness + " | health: " + health + 
-    " | bathroom: " + restroom;
-
+    document.getElementById('timer').textContent = "Stats: || Hunger: " + hunger + " || Happiness: " + happiness + " || " + " Health: " + health + " || Bathroom: " + restroom + " || ";
     // case #2 of slowly killing our tamagotchi
     if (secStats % 10 == 0) {
       // decrease stats accordingly every 10 sec, lower limit set to 0
@@ -81,6 +78,7 @@ window.onload = function() {
       restroom = Math.min(100, restroom);
     // ========================================================================
     }
+    updateStatsDisplay();
   }, 1000);
   document.getElementById('eat').classList.add('selected');
 };
@@ -303,17 +301,11 @@ document.getElementById('B').addEventListener('click', function() {
       
     // ========================== view stats ('B') ==========================
     case 'health':
-      var tamagotchiAction = document.getElementById('action');
-      var status = document.getElementById('stats');
-      setTimeout(function() {
-        status.style.display = 'flex';
-        tamagotchiAction.style.display = 'none';
-        document.getElementById('stats').textContent = "Stats: hunger: " + hunger + 
-        "  happiness: " + happiness + " health: " + health + 
-        "  bathroom: " + restroom;
-      }, 3000);
-      tamagotchiAction.style.display = 'flex';
-      status.style.display = 'none';
+      // Update stats display
+      updateStatsDisplay();
+      document.getElementById('statsContainer').style.display = 'block';
+      document.getElementById('action').style.display = 'none';
+      document.getElementById('action').style.display = 'none';
       break;
     // ======================================================================
 
@@ -330,11 +322,42 @@ document.getElementById('B').addEventListener('click', function() {
     }
 }); 
 // ============================================================================
+// Function to update stats display
+function updateStatsDisplay() {
+  // Update stats display based on current values
+  let statsDisplay = "Stats: || Hunger: " + hunger + " || Happiness: " + happiness + " || Health: " + health + " || Bathroom: " + restroom + " ||";
+  document.getElementById('stats').textContent = statsDisplay;
+  let currentTime = new Date();
+  let seconds = Math.floor((currentTime - startTime) / 1000);
+  let minutes = Math.floor(seconds / 60);
+  let hours = Math.floor(minutes / 60);
+  let tamagotchiAge;
 
-// functionality for circularBtn 'C'
+  if (seconds % 30 == 0) {
+    tamagotchiAge = seconds / 30;
+    document.getElementById('age').textContent = "Age: " + tamagotchiAge + " yr(s) old";
+  }
+
+  let secondsFormat = ("0" + (seconds % 60)).slice(-2);
+  let minutesFormat = ("0" + (minutes % 60)).slice(-2);
+
+  let time = "Time: " + hours + ":" + minutesFormat + ":" + secondsFormat;
+  document.getElementById('time').textContent = time;
+}
+
 /* 
 circularBtn 'C' serves as a cancel btn: e.g. user presses 'B' on the 'eat'
 icon, which will open a menu of food options. From there, the user can 
 traverse the menu with 'A', select food option to feed tamagotchi with 'B',
 or 'C' to go back to main screen.
 */
+document.getElementById('C').addEventListener('click', function() {
+
+  let selectedAction = document.querySelector('.btnIcon.selected');
+  
+  if (selectedAction.id === 'health') {
+    document.getElementById('statsContainer').style.display = 'none';
+    document.getElementById('action').style.display = 'flex';
+  }
+  
+});
