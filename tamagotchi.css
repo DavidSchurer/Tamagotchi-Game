@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgb(137, 160, 114);
+  background-color: rgb(182, 172, 215);
 }
 /* Egg-shape to resemble Tamagotchi device */
 .egg {
@@ -15,11 +15,11 @@ body {
   height: 700px;
   max-width: calc(700px * 0.8);
   border-radius: 60% / 70% 70% 50% 50%; 
-  background-color: rgb(91, 113, 170);
+  background-color: rgb(129, 153, 213);
   margin: auto;
   margin-top: 45px; 
   margin-bottom: 50px; 
-  box-shadow: 0 4px 6px rgba(0, 0, 128, 0.5);
+  box-shadow: 0 4px 6px rgba(5, 5, 50, 0.5);
 }
 
 /* Text for Tamagotchi's name */
@@ -28,7 +28,7 @@ body {
   font-size: 28px;
   font-weight: bold;
   color: #e8e8ff;
-  text-shadow: 0 0 10px #a9bce1;
+  text-shadow: 0 0 10px #7089ba;
   text-align: center;
   margin-top: 15%;
 }
@@ -50,7 +50,7 @@ body {
   justify-content: space-between; /* align header and footer buttons to their respective ends */
   height: 325px;
   width: 300px;
-  background-color: #cccccc; 
+  background-color: #acaae9; 
   border-radius: 10%;
   margin-top: 13%;
   margin-bottom: 2%;
