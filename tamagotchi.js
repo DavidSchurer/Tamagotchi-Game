@@ -385,7 +385,6 @@ function handleDeath() {
   tamagotchiAction.src = "mametchi-dead.gif";
   if (window.confirm("Mametchi has died!!! Would you like to restart?")) {
     window.location.reload();
-  } else {
-    window.location.reload();
+    clearInterval(timerInterval);
   }
 }
