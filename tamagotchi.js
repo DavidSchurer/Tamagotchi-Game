@@ -1,6 +1,6 @@
 // ============================= global variables =============================
 let startTime;
-let age = hunger = happiness = health = bathroom = restroom = 100; // stats
+let age = hunger = happiness = health = restroom = 100; // stats
 let days = hr = min = sec = 0; // time settings
 
 // Once browser finishes loading, start timer and set 'eat' icon to default
@@ -37,7 +37,19 @@ window.onload = function() {
     else if (min >= 10 && sec >= 10) {
       document.getElementById('time').textContent = "Time: 0" + hr + ":" + min + ":" + sec;
     }
-    // ==========================================================================
+    // ========================================================================
+
+    // ================================ death =================================
+    if (hunger === 0 || happiness === 0 || health === 0 || restroom === 0) {
+      var tamagotchiAction = document.getElementById('action');
+      tamagotchiAction.src = "mametchi-dead.gif";
+      if (window.confirm("Mametchi has died!!! Would you like to restart?")) {
+        window.location.reload(); // refreshes page
+      } else {
+        window.close(); // cancel will close game
+      }
+    }
+    // ========================================================================
 
     // =========================== tamagotchi stats ===========================
     // ================================= age ==================================
@@ -62,7 +74,10 @@ window.onload = function() {
       restroom = Math.min(100, restroom);
     }
     // ugly format, keeping temporarily for testing purposes
-    document.getElementById('timer').textContent = "Stats: || Hunger: " + hunger + " || Happiness: " + happiness + " || " + " Health: " + health + " || Bathroom: " + restroom + " || ";
+    document.getElementById('timer').textContent = "stats: hunger: " + hunger + 
+    " | happiness: " + happiness + " | health: " + health + 
+    " | bathroom: " + restroom;
+
     // case #2 of slowly killing our tamagotchi
     if (secStats % 10 == 0) {
       // decrease stats accordingly every 10 sec, lower limit set to 0
@@ -78,7 +93,6 @@ window.onload = function() {
       restroom = Math.min(100, restroom);
     // ========================================================================
     }
-    updateStatsDisplay();
   }, 1000);
   document.getElementById('eat').classList.add('selected');
 };
@@ -143,7 +157,7 @@ document.getElementById('B').addEventListener('click', function() {
       selectedAction.classList.remove('selected');
       // apply selected to hotdog by default
       document.getElementById('food1').classList.add('foodSelected');
-      
+      if (!document.querySelector('.btnIcon.selected')) {
       // ===================== traverse food icons ('B') ======================
       document.getElementById('A').addEventListener('click', function() {
       let selectedFood = document.querySelector('.foodItem.foodSelected');
@@ -175,6 +189,8 @@ document.getElementById('B').addEventListener('click', function() {
       // ======================================================================
 
       // ========================= select food ('B') ==========================
+      // check if any icon buttons are currently selected to determine if 
+      // currently on main menu screen. if not, then assume foodmenu is open
       document.getElementById('B').addEventListener('click', function() {
         // Choose which food to feed tamagotchi food icon         
         let selectedFood = document.querySelector('.foodItem.foodSelected');
@@ -263,6 +279,7 @@ document.getElementById('B').addEventListener('click', function() {
             break;      
         }
       });
+    }
       break;
     // ======================================================================
 
@@ -298,7 +315,38 @@ document.getElementById('B').addEventListener('click', function() {
       restroom += 10;
       break;
     // ======================================================================
-      
+    /*  
+    // ========================== view stats ('B') ==========================
+    case 'health':
+      var tamagotchiAction = document.getElementById('action');
+      var status = document.getElementById('stats');
+      document.getElementById('stats').textContent = "Stats: hunger: " + hunger + 
+      "  happiness: " + happiness + " health: " + health + 
+      "  bathroom: " + restroom;
+      status.style.display = 'flex';
+      tamagotchiAction.style.display = 'none';
+      document.getElementById('C').addEventListener('click', function() {
+        status.style.display = 'none';
+        tamagotchiAction.style.display = 'flex';
+      });
+      break;
+    // ======================================================================
+
+    // ========================== attend ('B') ==========================      
+    case 'attend':
+      var tamagotchiAction = document.getElementById('action');
+      tamagotchiAction.src = 'mametchi-popping-off.gif';
+      setTimeout(function() {
+        tamagotchiAction.src = 'mametchi.webp';
+      }, 1500);
+      happiness += 10;
+      break;
+    // ============================================================================
+    }
+}); 
+// ============================================================================
+*/
+
     // ========================== view stats ('B') ==========================
     case 'health':
       // Update stats display
