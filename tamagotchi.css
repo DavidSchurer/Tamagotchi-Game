@@ -59,7 +59,14 @@ body {
   padding: 10px, 5px; 
   overflow: hidden; /* prevent child content from overflowing div boundaries */
 }
+ 
+/*Change font and color of status*/
+#age, #time {
+  font-family: 'Courier New';
+  font-weight: bold;
+  color: rgba(14, 14, 166, 0.5);
 
+}
 /* Upper banner icons for actions: eat, play and heal */
 .headerBtns {
   display: flex;
