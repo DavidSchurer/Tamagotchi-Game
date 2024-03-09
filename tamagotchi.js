@@ -2,6 +2,7 @@
 let startTime;
 let age = hunger = happiness = health = restroom = 100; // stats
 let days = hr = min = sec = 0; // time settings
+let selectedIconLock = false;
 
 // Once browser finishes loading, start timer and set 'eat' icon to default
 window.onload = function() {
@@ -102,6 +103,11 @@ window.onload = function() {
 document.getElementById('A').addEventListener('click', function() {
   // Retrieve icon with 'selected' to use id to traverse to next icon
   let selectedAction = document.querySelector('.btnIcon.selected');
+
+  if (selectedIconLock) {
+    return;
+  }
+
   switch (selectedAction.id) {
     case 'eat':
       // Remove 'selected' from current icon
@@ -137,6 +143,11 @@ document.getElementById('A').addEventListener('click', function() {
 document.getElementById('B').addEventListener('click', function() {
   // Retrieve icon with 'selected' to perform action based on id
   let selectedAction = document.querySelector('.btnIcon.selected');
+
+  if (selectedAction.id === 'health') {
+    selectedIconLock = true;
+  }
+
   switch (selectedAction.id) {
     case 'eat':
       // Open food menu
@@ -376,6 +387,7 @@ document.getElementById('C').addEventListener('click', function() {
   if (selectedAction.id === 'health') {
     document.getElementById('statsContainer').style.display = 'none';
     document.getElementById('action').style.display = 'flex';
+    selectedIconLock = false;
   }
   
 });
