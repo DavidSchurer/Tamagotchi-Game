@@ -40,14 +40,8 @@ window.onload = function() {
     // ========================================================================
 
     // ================================ death =================================
-    if (hunger === 0 || happiness === 0 || health === 0 || restroom === 0) {
-      var tamagotchiAction = document.getElementById('action');
-      tamagotchiAction.src = "mametchi-dead.gif";
-      if (window.confirm("Mametchi has died!!! Would you like to restart?")) {
-        window.location.reload(); // refreshes page
-      } else {
-        window.close(); // cancel will close game
-      }
+    if (hunger <= 0 || happiness <= 0 || health <= 0 || restroom <= 0) {
+      handleDeath();
     }
     // ========================================================================
 
@@ -315,20 +309,14 @@ document.getElementById('B').addEventListener('click', function() {
       restroom += 10;
       break;
     // ======================================================================
-    /*  
+
     // ========================== view stats ('B') ==========================
     case 'health':
-      var tamagotchiAction = document.getElementById('action');
-      var status = document.getElementById('stats');
-      document.getElementById('stats').textContent = "Stats: hunger: " + hunger + 
-      "  happiness: " + happiness + " health: " + health + 
-      "  bathroom: " + restroom;
-      status.style.display = 'flex';
-      tamagotchiAction.style.display = 'none';
-      document.getElementById('C').addEventListener('click', function() {
-        status.style.display = 'none';
-        tamagotchiAction.style.display = 'flex';
-      });
+      // Update stats display
+      updateStatsDisplay();
+      document.getElementById('statsContainer').style.display = 'block';
+      document.getElementById('action').style.display = 'none';
+      document.getElementById('action').style.display = 'none';
       break;
     // ======================================================================
 
@@ -345,31 +333,7 @@ document.getElementById('B').addEventListener('click', function() {
     }
 }); 
 // ============================================================================
-*/
 
-    // ========================== view stats ('B') ==========================
-    case 'health':
-      // Update stats display
-      updateStatsDisplay();
-      document.getElementById('statsContainer').style.display = 'block';
-      document.getElementById('action').style.display = 'none';
-      document.getElementById('action').style.display = 'none';
-      break;
-    // ======================================================================
-
-    // ========================== view stats ('B') ==========================      
-    case 'attend':
-      var tamagotchiAction = document.getElementById('action');
-      tamagotchiAction.src = 'mametchi-attend.png';
-      setTimeout(function() {
-        tamagotchiAction.src = 'mametchi.webp';
-      }, 1000);
-      happiness += 10;
-      break;
-    // ============================================================================
-    }
-}); 
-// ============================================================================
 // Function to update stats display
 function updateStatsDisplay() {
   // Update stats display based on current values
@@ -409,3 +373,13 @@ document.getElementById('C').addEventListener('click', function() {
   }
   
 });
+
+function handleDeath() {
+  var tamagotchiAction = document.getElementById('action');
+  tamagotchiAction.src = "mametchi-dead.gif";
+  if (window.confirm("Mametchi has died!!! Would you like to restart?")) {
+    window.location.reload();
+  } else {
+    window.location.reload();
+  }
+}
