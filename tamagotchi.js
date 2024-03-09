@@ -68,9 +68,15 @@ window.onload = function() {
       restroom = Math.min(100, restroom);
     }
     // ugly format, keeping temporarily for testing purposes
-    document.getElementById('timer').textContent = "stats: hunger: " + hunger + 
-    " | happiness: " + happiness + " | health: " + health + 
-    " | bathroom: " + restroom;
+    document.getElementById('timer').textContent = "Stats: Hunger:" + hunger + 
+    " | Happiness:" + happiness +
+    " Health:" + health +
+    " | Bathroom:" + restroom;
+
+    document.getElementById('timer').style.fontFamily = 'Courier New';
+    document.getElementById('timer').style.fontWeight = 'bold';
+    document.getElementById('timer').style.color = 'rgba(14, 14, 166, 0.5)';
+
 
     // case #2 of slowly killing our tamagotchi
     if (secStats % 10 == 0) {
