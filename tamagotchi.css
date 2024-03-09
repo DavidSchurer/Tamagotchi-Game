@@ -185,3 +185,7 @@ div.screenContent div.stats {
   padding-top: 20px;
   display: none;
 }
+
+#statsDisplayContainer {
+  display: none;
+}
