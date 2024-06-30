@@ -15,7 +15,7 @@ it alive and well.
 
 - <strong>Dynamic UI: </strong> The Tamagotchi game UI uses visual timers and real-time updates on the Tamagotchi's stats.
 
-- <strong>Event Handling</strong> Animated GIFS are used to represent and reflect the Tamagotchi's current activity.
+- <strong>Event Handling: </strong> Animated GIFS are used to represent the Tamagotchi's current activity.
 
 ## Technologies Used
 - HTML
